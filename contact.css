@@ -1,0 +1,262 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: hsla(277, 82%, 74%, 0.47);
+}
+
+h2 {
+    color: #1124d5;
+    text-align: left;
+}
+
+li {
+    list-style: none;
+    padding: 0;
+}
+
+strong {
+    color: #132776;
+}
+
+.liens {
+    display: flex;
+    list-style-type: none;
+    }
+    
+    header {
+      height: 150px;
+      width: 100%;
+      text-align:center;
+      background-position: center;
+      position: relative;
+      color: rgb(18, 17, 17);
+    }
+    /* Titre principal (h1) */
+    h1 {
+    font-family: "Pacifico", cursive;
+    font-size: 35px; 
+    color: #000000fb;
+    font-weight: normal;
+    border-radius: 50px;
+    text-align: center; 
+    margin: 0 auto;
+    white-space: nowrap;
+    margin-right: 380px;
+    width: 40%;
+    }
+    
+    /* Réduire la taille pour des écrans moyens */
+    @media (max-width: 1024px) {
+    h1 {
+      font-size: 30px; 
+      }
+    }
+    /* Réduire encore plus la taille pour des écrans plus petits */
+    @media (max-width: 768px) {
+    h1 {
+      font-size: 26px; 
+    }
+    }
+    
+    /* Réduire encore plus pour les très petits écrans */
+    @media (max-width: 480px) {
+    h1 {
+      font-size: 22px; 
+    }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    /* l'image à coté du h1 */
+    .logo {
+      width: 120px;
+      height: 100px;
+      border-radius: 50%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    /*  grandaire l'image  leur de survole */
+    .logo:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre douce au survol */
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /* contrôler la barre    */
+    .navbar {
+    position:fixed;
+    display: flex;
+    align-items: center;
+    background-color: #9a67ca91; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height:90px;
+    }
+    
+    
+    
+    
+    /* côntroler les liens de la barre */
+    
+    .liens a {
+    color: rgba(15, 4, 109, 0.968);
+    text-decoration: none;
+    font-size: 17px;
+    display: block;  
+    border-radius: 4px;
+    transition: 0.3s ease, color 0.3s ease;
+    position: relative; 
+    padding:5px 35px;
+    }
+    /* Changer la couleur des liens au survol */
+    .liens a:hover {
+    background-color:#ec12ae8e;; 
+    }
+    
+    
+    
+    
+    
+    
+    
+    /*  le  menu    */
+    .hamburger {
+      display: none;
+      cursor: default;
+    } 
+    
+    
+    
+    /* les barres du menu */ 
+    .hamburger .bar{
+      display:block;
+      background-color: rgba(224, 10, 135, 0.808);
+      height: 4px;
+      width:35px;
+      transition: all 0.3s ease-in-out;
+      margin: 10px auto;
+      -webkit-transition:all 0.3s ease-in-out;
+    
+    }
+    /* le menu dans les écrants petits */
+    @media screen and (max-width:900px) {
+      .hamburger{
+          display:block;  
+         position: absolute; 
+          top: 20px;
+          right: 20px; 
+          z-index: 1000; 
+      }
+    
+      /* ++ java pour activer le menu */
+      .hamburger.active .bar:nth-child(1) {
+          transform: translateY(9px) rotate(45deg);
+      }
+      .hamburger.active .bar:nth-child(2) {
+          opacity:0;
+      }
+    
+      .hamburger.active .bar:nth-child(3) {
+          transform: translateY(-9px) rotate(-45deg);
+      }
+      .liens {
+          left:-100%;
+          gap:0;
+          background-color: rgb(128, 31, 184);
+          width: 100%;
+          position: fixed;
+          top: 70px;
+          flex-direction: column;
+          text-align: center;
+          transition: 0.3s ;
+      }
+    
+      .liens.active{
+         left:0;
+      }
+      li{
+           margin:16px 0;
+    
+      }
+    }
+     /* autres liens dans le 2éme lien */
+    /* Style du container 2éme lien du sous-menu */
+    .container {
+      position: relative;
+    }
+    /*  le fléche*/
+    .arrow {
+      margin-left: 8px;
+      transition: transform 0.3s ease-in-out;
+      font-size: 16px;
+      color: white; /* S'assurer que la flèche soit visible */
+    }
+    
+    /* Sous-menu */
+    .submenu {
+      display: none; /* Masquer par défaut */
+      position: absolute;
+      top: 100%; 
+      left: 0;
+      background-color: #ac6ed3;
+      list-style-type: none;
+      padding: 10px 0;
+      width: 220px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px); /* Légère animation */
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+      z-index: 1;
+    }
+    
+    /* Quand le sous-menu est actif, il devient visible */
+    .submenu.active {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    /* Style des éléments du sous-menu */
+    .submenu li {
+      padding: 10px 20px;
+      border-bottom: 1px solid #500bb1;
+      transition: background-color 0.3s ease;
+      border-radius: 6px;
+    }
+    
+    /* Style des liens du sous-menu */
+    .submenu li a {
+      text-decoration: none;
+      font-size: 16px;
+    }
+    
+    /* Effet au survol des liens du sous-menu */
+    .submenu li a:hover {
+      color: #0abcf7f7; 
+    }
+    
+    /* Rotation de la flèche au clic */
+    .container.active .arrow {
+      transform: rotate(180deg);
+    }
+    .footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #1a1a2e;
+        color: #aaa;
+        margin-top: 20px;
+    }

@@ -1,0 +1,21 @@
+img{
+display:block;
+margin: 40px auto;
+}
+h1{
+ color:navy;
+ font-size:70px;
+ font-weight:900;
+ font-style:uppercase;
+ text-align:center;
+}
+#space{
+height:600px;
+width:800px;
+}
+#space2{
+
+    height:600px;
+    width:800px;
+    }
+

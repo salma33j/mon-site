@@ -1,0 +1,393 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100%;
+  width: 100%;
+}
+.liens {
+display: flex;
+list-style-type: none;
+}
+header {
+  height: 100vh;
+  width: 100%;
+  text-align:center;
+  background-image: url('terre1.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: rgb(18, 17, 17);
+}
+
+
+/* Titre principal (h1) */
+h1 {
+font-family: "Pacifico", cursive;
+font-size: 35px; 
+color: #000000fb;
+font-weight: normal;
+border-radius: 50px;
+text-align: center; 
+margin: 0 auto;
+white-space: nowrap;
+margin-right: 450px;
+width: 40%;
+}
+
+/* Réduire la taille pour des écrans moyens */
+@media (max-width: 1024px) {
+h1 {
+  font-size: 30px; 
+  }
+}
+/* Réduire encore plus la taille pour des écrans plus petits */
+@media (max-width: 768px) {
+h1 {
+  font-size: 26px; 
+}
+}
+
+/* Réduire encore plus pour les très petits écrans */
+@media (max-width: 480px) {
+h1 {
+  font-size: 22px; 
+}
+}
+
+
+
+
+
+
+
+
+/* l'image à coté du h1 */
+.logo {
+  width: 120px;
+  height: 100px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/*  grandaire l'image  leur de survole */
+.logo:hover {
+transform: scale(1.1); 
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre douce au survol */
+}
+
+
+
+
+
+
+
+
+
+
+/* contrôler la barre    */
+.navbar {
+  width:100%;
+  position:fixed;
+
+display: flex;
+align-items: center;
+justify-content: space-between;
+background-color: #9a67ca91; 
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+height:15%;
+}
+
+
+
+
+/* côntroler les liens de la barre */
+
+.liens a {
+color: rgba(15, 4, 109, 0.968);
+text-decoration: none;
+font-size: 17px;
+display: block;  
+white-space: nowrap; 
+border-radius: 4px;
+transition: background-color 0.3s ease, color 0.3s ease;
+position: relative; 
+padding:10px 35px;
+}
+/* Changer la couleur des liens au survol */
+.liens a:hover {
+background-color:#ec12ae8e;; 
+}
+
+
+
+
+
+
+
+/*  le  menu    */
+.hamburger {
+  display: none;
+  cursor: default;
+} 
+
+
+
+/* les barres du menu */ 
+.hamburger .bar{
+  display:block;
+  background-color: rgba(224, 10, 135, 0.808);
+  height: 4px;
+  width:35px;
+  transition: all 0.3s ease-in-out;
+  margin: 10px auto;
+  -webkit-transition:all 0.3s ease-in-out;
+
+}
+/* le menu dans les écrants petits */
+@media screen and (max-width:900px) {
+  .hamburger{
+      display:block;  
+     position: absolute; 
+      top: 20px;
+      right: 20px; 
+      z-index: 1000; 
+  }
+
+  /* ++ java pour activer le menu */
+  .hamburger.active .bar:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(2) {
+      opacity:0;
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+  }
+  .liens {
+      left:-100%;
+      gap:0;
+      background-color: rgb(128, 31, 184);
+      width: 100%;
+      position: fixed;
+      top: 70px;
+      flex-direction: column;
+      text-align: center;
+      transition: 0.3s ;
+  }
+
+  .liens.active{
+     left:0;
+  }
+  li{
+       margin:16px 0;
+
+  }
+}
+
+
+
+
+
+ 
+
+
+
+
+
+ /* autres liens dans le 2éme lien */
+/* Style du container 2éme lien du sous-menu */
+.container {
+  position: relative;
+}
+/*  le fléche*/
+.arrow {
+  margin-left: 8px;
+  transition: transform 0.3s ease-in-out;
+  font-size: 16px;
+  color: white; /* S'assurer que la flèche soit visible */
+}
+
+/* Sous-menu */
+.submenu {
+  display: none; /* Masquer par défaut */
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  background-color: #ac6ed3;
+  list-style-type: none;
+  padding: 10px 0;
+  width: 220px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px); /* Légère animation */
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 1;
+}
+
+/* Quand le sous-menu est actif, il devient visible */
+.submenu.active {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Style des éléments du sous-menu */
+.submenu li {
+  padding: 10px 20px;
+  border-bottom: 1px solid #500bb1;
+  transition: background-color 0.3s ease;
+  border-radius: 6px;
+}
+
+/* Style des liens du sous-menu */
+.submenu li a {
+  text-decoration: none;
+  font-size: 16px;
+}
+
+/* Effet au survol des liens du sous-menu */
+.submenu li a:hover {
+  color: #0abcf7f7; 
+}
+
+/* Rotation de la flèche au clic */
+.container.active .arrow {
+  transform: rotate(180deg);
+}
+
+
+
+
+
+
+/* Centrage du texte dans un conteneur */
+
+/* Titres secondaires 1 (H2) */
+#titre_secondaire{
+text-align: center; 
+color: #000000; 
+font-size: 3.2em;
+margin:auto;
+padding-top:378px;
+padding-left:37px;
+text-shadow: 0 0 10px rgba(142, 68, 173, 0.8);
+
+}
+/* Responsivité pour petits écrans */
+@media (max-width: 600px) {
+#titre_secondaire {
+  font-size: 2em; 
+  white-space: normal; 
+}
+}
+
+
+
+
+
+
+
+
+/* Titres secondaires 2 (H2) */
+h2 {
+text-align: center; /* Centrer les sous-titres */
+color: #8e44ad; /* Violet doux */
+font-size: 2.5em;
+margin-top: 30px;
+text-shadow: 0 0 10px rgba(142, 68, 173, 0.8); /* Lueur douce autour du titre */
+}
+/* Paragraphe */
+p {
+color: #34495e; /* Gris foncé clair pour un contraste agréable avec le fond clair */
+font-size: 1.2em;
+line-height: 1.8;
+text-align: justify;
+margin: 20px auto;
+max-width: 800px;
+}
+/* Disposition des sections sur des écrans plus petits */
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.content img, .content video {
+width: 35%;
+border-radius: 10px;
+border: 2px solid #ffffff; /* Bordure blanche autour des images et vidéos */
+margin-top: 20px;
+}
+
+/* Adaptation pour les écrans mobiles */
+@media (max-width: 768px) {
+/* Redimensionner la disposition pour les écrans plus petits */
+.content {
+    flex-direction: column;
+}
+}
+
+
+.history {
+  display: flex; /* Utilisation de Flexbox pour aligner les éléments horizontalement */
+  flex-direction: column; /* Assure que le titre est en haut */
+  margin: 20px; /* Ajoute une marge autour de la section */
+}
+
+.history .content {
+  display: flex; /* Place le paragraphe et la vidéo côte à côte */
+  flex-direction: row; /* Aligne les éléments horizontalement */
+  justify-content: space-between; /* Place les éléments aux extrémités */
+  align-items: flex-start; /* Aligne les éléments en haut */
+  gap: 20px; 
+  /* Ajoute un espace entre la vidéo et le texte */
+  padding-left:600px;
+}
+
+.history .text {
+  flex: 1; /* Le paragraphe prend l'espace restant */
+  text-align: right; /* Aligne le texte à droite */
+}
+
+.history video {
+  flex: 1; /* La vidéo occupe un espace égal à celui du texte */
+  max-width: 300px; /* Largeur maximale de la vidéo */
+  height:auto;
+}
+
+.text {
+  flex: none;               /* Le texte prend toute la largeur disponible */
+  width: 100%;               /* Le texte occupe 100% de la largeur de l'écran */
+  margin-bottom: 10px;       /* Un peu d'espace sous le texte */
+}
+
+/* Ajuste la vidéo sur les petits écrans */
+.video {
+  width: 100%;               /* La vidéo prend toute la largeur disponible */
+  margin-top: 10px;          /* Un peu d'espace au-dessus de la vidéo */
+  max-width: 100%;           /* La vidéo prend toute la largeur de l'écran */
+}
+
+@media (max-width: 768px) {
+  .history  {
+    flex-direction: column;   /* Passe en disposition verticale (texte au-dessus de la vidéo) */
+    align-items: center;      /* Centrer le texte et la vidéo */
+    gap: 10px;                /* Réduire l'espace entre le texte et la vidéo */
+  }
+}
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #1a1a2e;
+  color: #aaa;
+  margin-top: 20px;
+}

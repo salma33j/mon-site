@@ -1,0 +1,411 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #1a1a2e;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* En-tête */
+.heed {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to bottom, #3a0ca3, #480ca8);
+    color: #fff;
+}
+
+.heed h1 {
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Police */
+    font-size: 30px;                /* Taille du texte */
+    color: #2E86C1;                 /* Couleur du texte */
+    text-align: center;             /* Aligner le texte au centre */
+    text-transform: uppercase;      /* Mettre le texte en majuscules */
+   
+} 
+.liens {
+  display: flex;
+  list-style-type: none;
+  }
+  
+  header {
+    height: 150px;
+    width: 100%;
+    text-align:center;
+    background-position: center;
+    position: relative;
+    color: rgb(18, 17, 17);
+  }
+  /* Titre principal (h1) */
+  h1 {
+  font-family: "Pacifico", cursive;
+  font-size: 35px; 
+  color: #000000fb;
+  font-weight: normal;
+  border-radius: 50px;
+  text-align: center; 
+  margin: 0 auto;
+  white-space: nowrap;
+  margin-right: 380px;
+  width: 40%;
+  }
+  
+  /* Réduire la taille pour des écrans moyens */
+  @media (max-width: 1024px) {
+  h1 {
+    font-size: 30px; 
+    }
+  }
+  /* Réduire encore plus la taille pour des écrans plus petits */
+  @media (max-width: 768px) {
+  h1 {
+    font-size: 26px; 
+  }
+  }
+  
+  /* Réduire encore plus pour les très petits écrans */
+  @media (max-width: 480px) {
+  h1 {
+    font-size: 22px; 
+  }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  /* l'image à coté du h1 */
+  .logo {
+    width: 120px;
+    height: 100px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /*  grandaire l'image  leur de survole */
+  .logo:hover {
+  transform: scale(1.1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre douce au survol */
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* contrôler la barre    */
+  .navbar {
+    position:fixed;
+  display: flex;
+  align-items: center;
+  background-color: #9a67ca91; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height:90px;
+  }
+  
+  
+  
+  
+  /* côntroler les liens de la barre */
+  
+  .liens a {
+  color: rgba(15, 4, 109, 0.968);
+  text-decoration: none;
+  font-size: 17px;
+  display: block;  
+  border-radius: 4px;
+  transition: 0.3s ease, color 0.3s ease;
+  position: relative; 
+  padding:5px 35px;
+  }
+  /* Changer la couleur des liens au survol */
+  .liens a:hover {
+  background-color:#ec12ae8e;; 
+  }
+  
+  
+  
+  
+  
+  
+  
+  /*  le  menu    */
+  .hamburger {
+    display: none;
+    cursor: default;
+  } 
+  
+  
+  
+  /* les barres du menu */ 
+  .hamburger .bar{
+    display:block;
+    background-color: rgba(224, 10, 135, 0.808);
+    height: 4px;
+    width:35px;
+    transition: all 0.3s ease-in-out;
+    margin: 10px auto;
+    -webkit-transition:all 0.3s ease-in-out;
+  
+  }
+  /* le menu dans les écrants petits */
+  @media screen and (max-width:900px) {
+    .hamburger{
+        display:block;  
+       position: absolute; 
+        top: 20px;
+        right: 20px; 
+        z-index: 1000; 
+    }
+  
+    /* ++ java pour activer le menu */
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity:0;
+    }
+  
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+    .liens {
+        left:-100%;
+        gap:0;
+        background-color: rgb(128, 31, 184);
+        width: 100%;
+        position: fixed;
+        top: 70px;
+        flex-direction: column;
+        text-align: center;
+        transition: 0.3s ;
+    }
+  
+    .liens.active{
+       left:0;
+    }
+    li{
+         margin:16px 0;
+  
+    }
+  }
+   /* autres liens dans le 2éme lien */
+  /* Style du container 2éme lien du sous-menu */
+  .container {
+    position: relative;
+  }
+  /*  le fléche*/
+  .arrow {
+    margin-left: 8px;
+    transition: transform 0.3s ease-in-out;
+    font-size: 16px;
+    color: white; /* S'assurer que la flèche soit visible */
+  }
+  
+  /* Sous-menu */
+  .submenu {
+    display: none; /* Masquer par défaut */
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    background-color: #ac6ed3;
+    list-style-type: none;
+    padding: 10px 0;
+    width: 220px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px); /* Légère animation */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 1;
+  }
+  
+  /* Quand le sous-menu est actif, il devient visible */
+  .submenu.active {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  /* Style des éléments du sous-menu */
+  .submenu li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #500bb1;
+    transition: background-color 0.3s ease;
+    border-radius: 6px;
+  }
+  
+  /* Style des liens du sous-menu */
+  .submenu li a {
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  /* Effet au survol des liens du sous-menu */
+  .submenu li a:hover {
+    color: #0abcf7f7; 
+  }
+  
+  /* Rotation de la flèche au clic */
+  .container.active .arrow {
+    transform: rotate(180deg);
+  }
+
+/* Section description */
+.description {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #2e2e5f;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(58, 12, 163, 0.5);
+}
+
+.description h2 {
+    color: #9d4edd;
+    text-align: center;
+}
+	
+/* Section événement */
+.event {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #3a0ca3;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(157, 78, 221, 0.5);
+    color: #fff;
+}
+
+.event h2 {
+    color: #00ffff;
+    text-align: center;
+}
+
+.event-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.event-image {
+    max-width: 100%;
+    border-radius: 8px;
+    border: 2px solid #9d4edd;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+.image-container {
+    display: flex;
+    flex-direction: column; /* Met l'image principale en haut et les sous-images en bas */
+    align-items: center; /* Centre l'image principale */
+}
+
+.main-image {
+    width: 300px; /* Ajuste la largeur de l'image principale */
+    height: 250px;
+    margin-bottom: 20px; /* Ajoute un espace sous l'image principale */
+	border: 2px solid #9d4edd;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.sub-images {
+    display: flex; /* Affiche les sous-images côte à côte */
+    gap: 30px; /* Ajoute un espace de 20px entre les deux sous-images */
+	border: 2px solid #9d4edd;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.sub-image {
+    width: 300px; /* Ajuste la largeur des sous-images */
+    height: 250px;
+	border: 2px solid #9d4edd;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+.styled-text {
+    
+    text-align: center; /* Centre le texte sous l'image */
+    font-size: 16px;
+    color: #dcdcdc; /* Couleur fuchsia */
+    text-decoration: underline; /* Texte souligné */
+    font-weight: bold; /* Texte en gras */
+    text-shadow: 0 0 10px #ff00ff; /* Effet brillant */
+    margin-top: 10px;
+}
+.event-info {
+    text-align: center;
+    background-color: #480ca8;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(58, 12, 163, 0.5);
+}
+
+video {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+#histoire-astronomie {
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #1a1a40;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    text-align: center;
+}
+
+#histoire-astronomie h2 {
+    font-size: 2em;
+    color: #ff00ff; /* Couleur brillante pour le titre */
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+}
+
+#histoire-astronomie p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #cccccc;
+	text-align: justify;
+}
+
+#histoire-astronomie a {
+    color: #00acee;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#histoire-astronomie a:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+/* Centrer la vidéo */
+#histoire-astronomie iframe {
+    margin-top: 20px;
+    max-width: 100%;
+    border: 2px solid #fff;
+}
+
+
+/* Pied de page */
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #1a1a2e;
+    color: #aaa;
+    margin-top: 20px;
+}
